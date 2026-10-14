@@ -1,0 +1,15 @@
+base_model = "amazon/nova-lite-v1"
+name = "Amazon Nova Lite 1.0"
+attachment = false
+tool_call = false
+
+[cost]
+input = 0.0595
+output = 0.238
+cache_read = 0.02975
+
+[limit]
+input = 300_000
+
+[modalities]
+input = ["text"]

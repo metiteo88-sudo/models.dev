@@ -1,0 +1,16 @@
+base_model = "amazon/nova-2-lite-v1"
+name = "Amazon Nova 2 Lite"
+attachment = false
+reasoning = false
+tool_call = false
+
+[cost]
+input = 0.51
+output = 4.25
+cache_read = 0.255
+
+[limit]
+input = 1_000_000
+
+[modalities]
+input = ["text"]

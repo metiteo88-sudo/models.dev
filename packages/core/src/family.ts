@@ -8,11 +8,17 @@ export const ModelFamilyValues = [
   // OpenAI/GPT style
   "gpt",
   "gpt-codex",
+  "gpt-codex-spark",
   "gpt-codex-mini",
   "gpt-pro",
   "gpt-mini",
   "gpt-nano",
+  "gpt-sol",
+  "gpt-terra",
+  "gpt-luna",
+  "gpt-astra",
   "gpt-oss",
+  "gpt-image",
 
   // OpenAI o-series (reasoning models)
   "o",
@@ -24,6 +30,8 @@ export const ModelFamilyValues = [
   "claude-haiku",
   "claude-sonnet",
   "claude-opus",
+  "claude-fable",
+  "claude-mythos",
 
   // Gemini style
   "gemini",
@@ -43,20 +51,45 @@ export const ModelFamilyValues = [
   // Meta Llama
   "llama",
 
+  // Meta Muse
+  "muse",
+  "muse-free",
+
   // Alibaba Qwen
   "qwen",
+  "qwen3.5",
+  "qwen3.6",
+  "qwen3.7-plus",
+  "qwen3.7-max",
+  "qwen3.8-max",
+  "qwen-free",
+
+  // DeepReinforce
+  "ornith",
 
   // DeepSeek
   "deepseek",
   "deepseek-thinking",
+  "deepseek-flash",
+  "deepseek-flash-free",
+  "deepseek-flash-think",
 
   // Microsoft Phi
   "phi",
 
   // Moonshot Kimi
   "kimi",
+  "kimi-k2",
+  "kimi-k3",
   "kimi-free",
   "kimi-thinking",
+
+  // Motif Technologies
+  "motif",
+
+  // Poolside Laguna
+  "laguna",
+  "laguna-s",
 
   // Mistral family
   "mistral",
@@ -67,11 +100,13 @@ export const ModelFamilyValues = [
   "ministral",
   "codestral",
   "devstral",
+  "leanstral",
   "pixtral",
   "mixtral",
 
   // xAI Grok
   "grok",
+  "grok-build",
   "grok-vision",
   "grok-beta",
 
@@ -89,12 +124,15 @@ export const ModelFamilyValues = [
   "command-r",
   "command-a",
   "command-light",
+  "north",
+  "north-free",
 
   // AI21 Jamba
   "jamba",
 
   // NVIDIA Nemotron
   "nemotron",
+  "nemotron-free",
 
   // AWS Titan
   "titan",
@@ -102,10 +140,17 @@ export const ModelFamilyValues = [
 
   // MiniMax
   "minimax",
+  "minimax-m2.5",
+  "minimax-m2.7",
+  "minimax-m3",
+  "minimax-m3-free",
   "minimax-free",
 
   // Hunyuan
   "hunyuan",
+
+  // Hy
+  "Hy",
 
   // Yi
   "yi",
@@ -126,9 +171,6 @@ export const ModelFamilyValues = [
   "solar",
   "solar-mini",
   "solar-pro",
-
-  // Exaone
-  "exaone",
 
   // Step (StepFun)
   "step",
@@ -184,6 +226,9 @@ export const ModelFamilyValues = [
   // Sherlock
   "sherlock",
 
+  // Pony
+  "pony",
+
   // Mercury
   "mercury",
 
@@ -192,6 +237,19 @@ export const ModelFamilyValues = [
 
   // Mimo
   "mimo",
+  "mimo-pro",
+  "mimo-omni",
+  "mimo-v2-pro",
+  "mimo-v2-omni",
+  "mimo-v2.5-pro",
+  "mimo-v2.5",
+  "mimo-v2.5-free",
+  "mimo-pro-free",
+  "mimo-omni-free",
+  "mimo-flash-free",
+
+  // Clarifai
+  "mm-poly",
 
   // Longcat
   "longcat",
@@ -209,6 +267,9 @@ export const ModelFamilyValues = [
 
   // Lucid
   "lucid",
+
+  // LucidQuery
+  "agi",
 
   // Intellect
   "intellect",
@@ -261,9 +322,15 @@ export const ModelFamilyValues = [
   // RNJ
   "rnj",
 
+  // Tecent Hy
+  "hy3",
+  "hy3-free",
+
   // Ling & Ring (InclusionAI)
   "ling",
+  "ling-flash-free",
   "ring",
+  "ring-1t-free",
 
   // Kat Coder
   "kat-coder",
@@ -301,6 +368,12 @@ export const ModelFamilyValues = [
   // Auto router
   "auto",
   "model-router",
+
+  // Conductor
+  "fugu",
+
+  // Sakana Namazu
+  "sakana-namazu",
 
   // V0
   "v0",
@@ -360,8 +433,31 @@ export const ModelFamilyValues = [
   "sourceful",
 
   // AllenAI
-  "allenai"
+  "allenai",
+
+  // Writer
+  "palmyra",
+
+  // ALLaM
+  "allam",
+
+  // Canopy Labs
+  "canopylabs",
+
+  // Groq
+  "groq",
+
+  // Elephant
+  "elephant",
 ] as const;
 
 export const ModelFamily = z.enum(ModelFamilyValues);
 export type ModelFamily = z.infer<typeof ModelFamily>;
+
+export function inferKimiFamily(...values: string[]): ModelFamily | undefined {
+  const target = values.join(" ").toLowerCase();
+  if (/kimi[^a-z0-9]*k2(?:[^a-z0-9]*\d+)?[^a-z0-9]*thinking/.test(target)) return "kimi-thinking";
+  if (/kimi[\s_-]*k2/.test(target)) return "kimi-k2";
+  if (/kimi[\s_-]*k3/.test(target)) return "kimi-k3";
+  return undefined;
+}

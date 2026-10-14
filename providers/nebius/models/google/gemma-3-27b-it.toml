@@ -1,4 +1,5 @@
 name = "Gemma-3-27b-it"
+description = "Open Gemma instruction model for efficient chat and self-hosted deployments"
 attachment = true
 reasoning = false
 tool_call = true
@@ -16,8 +17,8 @@ cache_read = 0.01
 cache_write = 0.125
 
 [limit]
-context = 128_000
-input = 120_000
+context = 110_000
+input = 100_000
 output = 8_192
 
 [modalities]

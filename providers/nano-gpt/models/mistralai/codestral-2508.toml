@@ -1,0 +1,14 @@
+base_model = "mistral/codestral-2508"
+name = "Codestral 2508"
+tool_call = false
+structured_output = false
+
+[cost]
+input = 0.3
+output = 0.9
+cache_read = 0.15
+
+[limit]
+context = 256_000
+input = 256_000
+output = 32_768

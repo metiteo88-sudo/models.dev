@@ -1,0 +1,17 @@
+base_model = "mistral/ministral-8b-2512"
+name = "Ministral 8B"
+attachment = false
+tool_call = false
+structured_output = false
+
+[cost]
+input = 0.15
+output = 0.15
+cache_read = 0.075
+
+[limit]
+input = 262_144
+output = 32_768
+
+[modalities]
+input = ["text"]

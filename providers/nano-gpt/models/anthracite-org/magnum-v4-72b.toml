@@ -1,0 +1,16 @@
+base_model = "anthracite-org/magnum-v4-72b"
+attachment = true
+structured_output = false
+
+[cost]
+input = 2.006
+output = 2.992
+cache_read = 1.003
+
+[limit]
+context = 16_384
+input = 16_384
+output = 8_192
+
+[modalities]
+input = ["text", "pdf"]

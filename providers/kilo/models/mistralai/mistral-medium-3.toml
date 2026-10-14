@@ -1,0 +1,7 @@
+base_model = "mistral/mistral-medium-3"
+description = "Mistral model for multilingual chat, reasoning, and tool-assisted workflows"
+
+[cost]
+input = 0.4
+output = 2
+cache_read = 0.04

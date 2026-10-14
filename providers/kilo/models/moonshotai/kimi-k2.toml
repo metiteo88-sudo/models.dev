@@ -1,0 +1,6 @@
+base_model = "moonshotai/kimi-k2"
+description = "Kimi model for long-context chat, coding, and agentic reasoning"
+
+[cost]
+input = 0.57
+output = 2.3

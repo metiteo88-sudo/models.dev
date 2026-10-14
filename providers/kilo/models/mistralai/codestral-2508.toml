@@ -1,0 +1,15 @@
+base_model = "mistral/codestral-2508"
+description = "Mistral coding model for code completion, generation, and developer workflows"
+attachment = true
+
+[cost]
+input = 0.3
+output = 0.9
+cache_read = 0.03
+
+[limit]
+context = 256_000
+output = 204_800
+
+[modalities]
+input = ["text", "pdf"]

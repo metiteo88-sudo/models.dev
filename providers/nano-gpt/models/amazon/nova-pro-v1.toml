@@ -1,0 +1,16 @@
+base_model = "amazon/nova-pro-v1"
+name = "Amazon Nova Pro 1.0"
+attachment = false
+tool_call = false
+
+[cost]
+input = 0.799
+output = 3.196
+cache_read = 0.3995
+
+[limit]
+input = 300_000
+output = 32_000
+
+[modalities]
+input = ["text"]

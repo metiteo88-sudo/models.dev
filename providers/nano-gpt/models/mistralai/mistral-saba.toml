@@ -1,0 +1,16 @@
+base_model = "mistral/mistral-saba"
+name = "Mistral Saba"
+attachment = false
+tool_call = false
+structured_output = false
+
+[cost]
+input = 0.1989
+output = 0.595
+cache_read = 0.09945
+
+[limit]
+input = 32_768
+
+[modalities]
+input = ["text"]
